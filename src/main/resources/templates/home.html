@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <header th:insert="blocks/header :: header" />
+
+    <main role="main">
+        <div class="container mt-5 pt-5 pb-5" >
+            <section>
+                <div class="container mt-2 pt-2">
+                    <div class="col alert alert-warning" th:each="post : ${blogPosts}">
+                        <div class="col">
+                            <h2 class="row" th:text="${post.title}" />
+                            <p class="row" th:text="${post.date}"/>
+                        </div>
+                        <div class="row">
+                            <p class="col-md-10" th:text="${post.shortcut}+'...'"/>
+                            <p class="col-md-2"><a class="btn btn-success" th:href="'/blog/' + ${post.id}" role="button">Full text »</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer th:insert="blocks/footer :: footer" />
+</body>
+</html>

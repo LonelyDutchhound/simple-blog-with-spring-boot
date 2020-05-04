@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Post</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="blocks/header :: header" />
+
+<main role="main">
+    <div class="container mt-5 pt-5">
+        <div th:each="post : ${blogPost}">
+            <form class="alert alert-warning" method="POST">
+                <h3>Edit post and it's title</h3>
+                <div class="form-group">
+                    <label for="post_title">Post Title</label>
+                    <input class="form-control" id="post_title" name="title" type="text" th:value="${post.title}"/>
+                </div>
+                <div class="form-group">
+                    <label for="post_text">Post Text</label>
+                    <textarea class="form-control"
+                              id="post_text" name="text"
+                              maxlength="2500" rows="12" style="resize: none;"
+                              th:text="${post.fullText}" />
+                </div>
+                <button type="submit" class="btn btn-success">Save changes</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer th:insert="blocks/footer :: footer" />
+</body>
+</html>

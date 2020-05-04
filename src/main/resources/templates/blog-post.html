@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post Text</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="blocks/header :: header" />
+
+<main role="main">
+    <section class="container mt-5 pt-5">
+        <article class="col" th:each="post : ${blogPost}">
+            <h2 class="col-md-12" th:text="${post.title}" />
+            <p class="col-md-2" th:text="${post.date}"/><br>
+            <span class="col-md-2" th:text="'Read: ' + ${post.viewsCount} + ' times.'"></span>
+            <hr>
+            <p class="row" th:text="${post.fullText}"/>
+            <hr>
+            <div class="row">
+                <p class="col-sm-2"><a class="btn btn-primary" th:href="'/blog/' + ${post.id} + '/edit'" role="button">Edit post</a></p>
+                <form class="col-sm-2" th:action="'/blog/' + ${post.id} + '/delete'" method="post">
+                    <button class="btn btn-warning" type="submit">Delete post</button>
+                </form>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer th:insert="blocks/footer :: footer" />
+</body>
+</html>

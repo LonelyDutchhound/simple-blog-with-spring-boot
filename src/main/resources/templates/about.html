@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contacts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+    <body>
+        <header th:insert="blocks/header :: header" />
+
+        <main role="main">
+            <div class="container mt-5 pt-5" >
+                <section>
+                    <article>
+                        <h2 class="row pl-5">About the blog and it's author</h2>
+                        <p class="row pl-5">This is a simple blog created in process of studying Java EE, Spring and Hibernate. The author, Elena,
+                            is a frontend developer willing to go fullstack. She is not satisfied with her current team, project and
+                            development vector.</p>
+                    </article>
+                </section>
+                <section>
+                    <div class="col alert alert-info">
+                        <h4 class="row pl-5">Elena Feoktistova</h4>
+                        <p class="row pl-5">lonely.dutchhound@gmail.com</p>
+                        <p class="row pl-5">tel. +7 911 296 49 36</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer th:insert="blocks/footer :: footer" />
+    </body>
+</html>
